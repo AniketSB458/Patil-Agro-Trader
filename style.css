@@ -42,9 +42,6 @@ background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3
 .btn.gold{background:linear-gradient(135deg,#e5c24f,var(--gold));border-color:var(--gold);color:#2b2100}
 .btn.sm{background:var(--forest);color:#fff;padding:9px 22px;min-height:44px}
 .btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
-.wa-fab{position:fixed;right:max(16px, env(safe-area-inset-right, 16px));bottom:max(18px, calc(env(safe-area-inset-bottom, 0px) + 16px));z-index:90;width:58px;height:58px;border-radius:50%;background:#25d366;font-size:30px;
-box-shadow:0 8px 24px rgba(37,211,102,.5);animation:ring 2.8s infinite;display:grid;place-items:center;color:#fff;touch-action:manipulation}
-@keyframes ring{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 0 0 16px rgba(37,211,102,0)}}
 
 /* ===== HERO ===== */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;justify-content:space-between;align-items:center;gap:30px;padding-right:6vw;background:radial-gradient(ellipse at 70% 20%,#1d5a32,var(--forest) 70%);color:#fff;overflow:hidden}
@@ -270,10 +267,13 @@ footer{background:#08190f;color:#cfe3d3;padding:56px 0 24px}
   }
   .chips .chip{padding:4px 8px;font-size:.78rem}
   .prod{padding:12px 8px 18px}
-  .wa-fab{width:52px;height:52px}
-  .wa-fab .ic{width:28px;height:28px}
-  .call-fab{width:44px;height:44px;right:max(16px, calc(env(safe-area-inset-right, 12px) + 4px))}
-  .call-fab .ic{width:22px;height:22px}
+  .call-fab{
+    width:48px;
+    height:48px;
+    left:max(16px, calc(env(safe-area-inset-left, 12px) + 4px));
+    bottom:max(16px, calc(env(safe-area-inset-bottom, 0px) + 14px));
+  }
+  .call-fab .ic{width:24px;height:24px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
 
@@ -307,12 +307,27 @@ footer{background:#08190f;color:#cfe3d3;padding:56px 0 24px}
 .vpanel .btn.wa{background:#25d366;border-color:#25d366;color:#06361a}
 
 
-/* ===== SVG ICONS (WhatsApp / Call) ===== */
+/* ===== FLOATING CALL BUTTON (bottom-left) ===== */
 .ic{width:1.2em;height:1.2em;fill:currentColor;flex:none;vertical-align:-.22em}
-.wa-fab .ic{width:32px;height:32px}
-.call-fab{position:fixed;right:max(20px, calc(env(safe-area-inset-right, 16px) + 4px));bottom:max(88px, calc(env(safe-area-inset-bottom, 0px) + 84px));z-index:90;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;color:#2b2100;
-background:linear-gradient(135deg,#e5c24f,var(--gold));box-shadow:0 8px 20px rgba(0,0,0,.35);transition:transform .3s;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-.call-fab:hover{transform:scale(1.08)}.call-fab .ic{width:24px;height:24px}
+.call-fab{
+  position:fixed;
+  left:max(20px, env(safe-area-inset-left, 16px));
+  bottom:max(18px, calc(env(safe-area-inset-bottom, 0px) + 16px));
+  z-index:90;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:#2b2100;
+  background:linear-gradient(135deg,#e5c24f,var(--gold));
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+  transition:transform .3s,box-shadow .3s;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.call-fab:hover{transform:scale(1.1);box-shadow:0 12px 28px rgba(201,162,39,.45)}
+.call-fab .ic{width:28px;height:28px}
 .foot a .ic{margin-right:6px;color:var(--gold)}
 
 /* ===== PRODUCTS SLIDER ===== */
